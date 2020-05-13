@@ -90,6 +90,11 @@ class Solution4 {
         
         var pre2: Int = 1
         var pre1: Int = 2
+        if n == 1 {
+            return pre2
+        } else if n == 2 {
+            return pre1
+        }
         
         for _ in 3...n {
             let tmp: Int = pre1 + pre2
@@ -104,3 +109,6 @@ class Solution4 {
 let solu4 = Solution4()
 let result4 = solu4.climbStairs(10)
 print(result4)
+
+
+// 官方还有2个斐波那契相关的公式计算 都是O(logn)的时间复杂度，数学知识没那么厚，先不写了
