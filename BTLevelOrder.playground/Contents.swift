@@ -127,6 +127,33 @@ class Solution {
         
         return result
     }
+    
+    // ********************** 递归快速解决方案 *******************************/
+    // 利用前序遍历方法，然后在遍历的过程中记录下当前层数，并将层数传递到下一层，然后记录每一层的数据
+    // 执行用时 : 12 ms, 在所有 Swift 提交中击败了100.00%的用户
+    // 内存消耗 : 21.1 MB, 在所有 Swift 提交中击败了66.67%的用户
+    // 可以说，这种方法确实厉害，利用递归，也即是利用系统的调用栈，系统的开销比我们自己用的好；
+    // 有点疑惑的是，这种方法时间复杂度应该也是O(n),为什么会比前两种方法快呢？这一点其实也验证了，递归未必比循环慢；
+    var ret: [[Int]] = []
+    func deepLevelOrder(_ root: TreeNode?) -> [[Int]] {
+        preOrder(root, 0)
+        return ret
+    }
+
+    func preOrder(_ node: TreeNode?, _ deepth: Int) {
+        guard let node = node else {
+            return
+        }
+
+        let count = ret.count
+        if count <= deepth {
+            ret.insert([], at: deepth)
+        }
+        ret[deepth].append(node.val)
+
+        preOrder(node.left, deepth+1)
+        preOrder(node.right, deepth+1)
+    }
 }
 
 //[3,9,20,null,null,15,7]
