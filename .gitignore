@@ -1,6 +1,4 @@
-ClimbStair.playground/playground.xcworkspace/xcshareddata
-ClimbStair.playground/playground.xcworkspace/xcuserdata/taotao.xcuserdatad
-xcuserdata/*
-xcshareddata/*
-*/xcuserdata/*
-*/xcshareddata/*
+xcuserdata
+xcshareddata
+.xcuserstate
+.xcbkptlist
